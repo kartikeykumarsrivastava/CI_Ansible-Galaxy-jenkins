@@ -1,3 +1,10 @@
----
-- name: copy war file
-  copy: src=src/main/webapp/index.jsp dest=/opt
+
+- block :
+  -  name: "downloading war from nexus"
+     maven_artifact:
+       group_id: "com.javacodegeeks"
+       arifact_id: "SampleWebApplication"
+       version: "1.0"
+       extension: "war"
+       repository_url: "http://192.168.2.9:8081/service/rest/repository/browse/maven-releases"
+       dest: /opt

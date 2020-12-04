@@ -7,4 +7,4 @@
        version: "1.0"
        extension: "war"
        repository_url: "http://192.168.2.9:8081/service/rest/repository/browse/maven-releases"
-       dest: /opt
+       dest: /var/lib/jenkins/workspace/CI-usingAnsible

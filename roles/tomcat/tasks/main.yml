@@ -2,9 +2,9 @@
 - block :
   -  name: "downloading war from nexus"
      maven_artifact:
-       group_id: "com.javacodegeeks"
-       arifact_id: "SampleWebApplication"
-       version: "1.0"
-       extension: "war"
-       repository_url: "http://192.168.2.9:8081/service/rest/repository/browse/maven-releases"
-       dest: /var/lib/jenkins/workspace/CI-usingAnsible
+       group_id: com.javacodegeeks
+       artifact_id: SampleWebApplication
+       repository_url: 'http://192.168.2.9:8081/service/rest/repository/browse/maven-releases'
+       username: admin
+       password: admin123
+       dest: /opt

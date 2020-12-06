@@ -7,4 +7,4 @@
        repository_url: 'http://192.168.2.9:8081/service/rest/repository/browse/maven-releases'
        username: admin
        password: admin123
-       dest: /opt
+       dest: /home/ubuntu/myproject/

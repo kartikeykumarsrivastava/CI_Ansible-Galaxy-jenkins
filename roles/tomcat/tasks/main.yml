@@ -4,7 +4,7 @@
      maven_artifact:
        group_id: com.javacodegeeks
        artifact_id: SampleWebApplication
-       repository_url: 'http://192.168.2.9:8081/repository/maven-releases'
+       repository_url: 'http://192.168.2.9:8081/repository/maven-releases/'
        username: admin
        password: admin123
        dest: /home/ubuntu/myproject/

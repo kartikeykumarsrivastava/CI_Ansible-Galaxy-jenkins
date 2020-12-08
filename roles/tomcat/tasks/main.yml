@@ -8,3 +8,4 @@
        username: admin
        password: admin123
        dest: /home/ubuntu/myproject/
+       owner: ansible_user

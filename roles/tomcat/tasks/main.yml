@@ -3,7 +3,7 @@
   - name: Ansible delete file wildcard
     find:
       paths: /home/ubuntu/Kartik
-      patterns: "*.*"
+      patterns: "te*.txt"
       use_regex: true
     register: wildcard_files_to_delete
 
@@ -11,4 +11,4 @@
     file:
       path: "{{ item.path }}"
       state: absent
-    with_items: "{{ wildcard_files_to_delete.files }}"
+    loop: "{{ wildcard_files_to_delete.files }}"

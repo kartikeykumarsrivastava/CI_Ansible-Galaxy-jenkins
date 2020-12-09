@@ -1,6 +1,6 @@
 ---
 - name: Install Java v{{ java_version }}
-  yum: name=java-{{ java_version }}-openjdk state=present
+  sudo: name=java-{{ java_version }}-openjdk state=present
 
 - name: add group "tomcat"
   group: name=tomcat

@@ -4,7 +4,7 @@
     find:
       paths: /home/ubuntu/Kartik
       patterns: "^in.*.txt"
-      use:regex: true
+      use_regex: true
     register: wildcard_files_to_delete
 
   - name: Ansible remove file wildcard

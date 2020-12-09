@@ -1,7 +1,4 @@
 ---
-- name: Install Java v{{ java_version }}
-  sudo: name=java-{{ java_version }}-openjdk state=present
-
 - name: add group "tomcat"
   group: name=tomcat
 

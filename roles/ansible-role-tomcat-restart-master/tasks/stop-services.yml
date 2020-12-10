@@ -1,0 +1,22 @@
+---
+
+- name: "Check tomcat is running on port"
+  shell: "if [ $(pgrep java) ]; then echo $(pgrep java) ; fi"
+  args:
+    executable: /bin/bash
+  register: tomcat_pid
+
+- name: "Stop tomcat service"
+  command: "{{ tomcat_path }}/bin/shutdown.sh"
+  when: tomcat_pid.stdout is defined
+
+- name: "Wait for tomcat to stop"
+  wait_for:
+    port: "{{ tomcat_port }}"
+    state: stopped
+    timeout: 120
+
+- name: "Force for tomcat to stop"
+  shell: "if [ $(pgrep java) ]; then pgrep java | xargs kill -9; fi"
+  args:
+    executable: /bin/bash

@@ -1,0 +1,55 @@
+---
+
+# Test file for Ansible Role: Tomcat restart
+- hosts: all
+  connection: local
+
+  vars:
+    tomcat_path: /opt/tomcat
+    tomcat_port: 8080
+    tomcat_user: tomcat
+
+  pre_tasks:
+    - name: "Add group 'tomcat'"
+      group:
+        name: tomcat
+
+    - name: "Add user 'tomcat'"
+      user:
+        name: tomcat
+        group: tomcat
+        home: /opt/tomcat
+        createhome: no
+
+    - name: "Download Tomcat installer"
+      get_url:
+        url: http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz
+        dest: /opt/apache-tomcat-7.0.61.tar.gz
+
+    - name: "Unzip the installation package"
+      unarchive:
+        copy: no
+        remote_src: yes
+        src: /opt/apache-tomcat-7.0.61.tar.gz
+        creates: /opt/apache-tomcat-7.0.61
+        dest: /opt
+
+    - name: "Symlink install directory"
+      file:
+        src: /opt/apache-tomcat-7.0.61
+        path: /opt/tomcat
+        state: link
+
+    - name: "Change ownership of Tomcat installation"
+      file:
+        path: /opt/tomcat/
+        owner: tomcat
+        group: tomcat
+        state: directory
+        recurse: yes
+
+    - name: "Start tomcat service"
+      command: "{{ tomcat_path }}/bin/startup.sh"
+
+  roles:
+    - ansible-role-tomcat-restart

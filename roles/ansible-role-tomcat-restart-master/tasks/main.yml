@@ -1,0 +1,11 @@
+---
+
+- include: stop-services.yml
+  tags:
+    - stop
+    - services
+
+- include: start-services.yml
+  tags:
+    - start
+    - services

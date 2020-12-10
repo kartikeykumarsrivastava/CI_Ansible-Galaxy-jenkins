@@ -1,0 +1,11 @@
+---
+
+- name: "Start tomcat service"
+  command: "{{ tomcat_path }}/bin/startup.sh"
+
+- name: "Wait for tomcat to start"
+  wait_for:
+    port: "{{ tomcat_port }}"
+    delay: 5
+    state: drained
+    timeout: 120

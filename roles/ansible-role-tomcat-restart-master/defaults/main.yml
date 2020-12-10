@@ -1,0 +1,5 @@
+---
+
+# Tomcat info
+tomcat_path: /opt/tomcat # (required)
+tomcat_port: 8080        # (required)

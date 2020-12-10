@@ -4,5 +4,5 @@
   gather_facts: false
   tasks:
     - include_role:
-        name: ansible-role-tomcat-restart
+        name: ansible-role-tomcat-restart-master
       
